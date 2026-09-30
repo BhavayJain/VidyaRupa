@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Vidyaroopa Discovery Kids Pre-school is a parent-friendly kindergarten with safe classrooms, play-based learning, activity zones, CCTV, and campus tours.">
+  <meta name="keywords" content="Vidyaroopa Discovery Kids, preschool Hatigaon, kindergarten Guwahati, school admission, campus tour">
+  <title>Vidyaroopa Discovery Kids Pre-school</title>
+  <link rel="icon" href="./images/vidyaroopa-logo.jpeg">
+  <style>
+:root {
+  --ink: #1d1b16;
+  --muted: #6f6a5d;
+  --line: #efe2bd;
+  --paper: #ffffff;
+  --mist: #fffaf0;
+  --blue: #ffe8a3;
+  --blue-dark: #24211a;
+  --green: #f8cf6b;
+  --green-soft: #fff7de;
+  --gold: #ffd86f;
+  --rose: #f39daf;
+  --black-soft: rgba(29, 27, 22, .08);
+  --shadow: 0 24px 70px rgba(29, 27, 22, .10);
+  --radius: 28px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 232, 163, .55), transparent 28rem),
+    radial-gradient(circle at 88% 22%, rgba(255, 216, 111, .30), transparent 24rem),
+    linear-gradient(180deg, #fffdf6 0%, #fffaf0 100%);
+  font-family: "Trebuchet MS", "Avenir Next", Verdana, sans-serif;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; }
+input, select, textarea { font-size: 16px; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(16px);
+  background: rgba(255,255,255,.82);
+  border-bottom: 1px solid rgba(239,226,189,.84);
+}
+
+.nav {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 900;
+  letter-spacing: -.03em;
+}
+.brand-mark {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 28px rgba(29,27,22,.12);
+  overflow: hidden;
+  flex: 0 0 54px;
+}
+.brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 3px;
+}
+.brand small {
+  display: block;
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: .68rem;
+}
+
+.nav-links { display: flex; align-items: center; gap: 18px; color: #39352a; font-weight: 800; }
+.nav-links a { padding: 10px 4px; }
+.nav-toggle { display: none; border: 0; background: transparent; color: var(--ink); font-size: 1.8rem; }
+
+.btn {
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 13px 22px;
+  border-radius: 999px;
+  font-weight: 900;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: linear-gradient(135deg, #ffe8a3, #ffd56a); color: var(--ink); box-shadow: 0 16px 34px rgba(29,27,22,.14); border: 1px solid rgba(29,27,22,.12); }
+.btn-secondary { background: #fff; color: var(--ink); border: 1px solid var(--line); box-shadow: 0 12px 28px rgba(23,52,71,.07); }
+.btn-soft { background: var(--green-soft); color: #3c3524; }
+.btn-danger { background: #fff1f3; color: #ad3350; }
+.btn-small { min-height: 38px; padding: 9px 14px; font-size: .9rem; }
+
+.section {
+  width: min(1180px, calc(100% - clamp(24px, 4vw, 56px)));
+  margin: 0 auto;
+  padding: 78px 0;
+}
+
+.hero {
+  width: min(1240px, calc(100% - clamp(24px, 4vw, 56px)));
+  min-height: calc(100vh - 78px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  align-items: center;
+  gap: 42px;
+  padding: 58px 0 72px;
+}
+
+.slideshow {
+  position: relative;
+  min-height: clamp(430px, 43vw, 540px);
+  border-radius: 42px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity .9s ease, transform 1.4s ease;
+}
+.slide.active { opacity: 1; transform: scale(1); }
+.slide img { width: 100%; height: 100%; object-fit: cover; }
+.slide-caption {
+  position: absolute;
+  left: 28px;
+  bottom: 28px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.85);
+  border: 1px solid rgba(255,255,255,.8);
+  font-weight: 900;
+  color: #29251c;
+}
+.slide-dots {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  display: flex;
+  gap: 8px;
+}
+.slide-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(29,27,22,.20);
+}
+.slide-dot.active { width: 30px; background: var(--blue-dark); }
+
+.hero-copy { animation: rise .8s ease both; }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #3c3524;
+  background: var(--green-soft);
+  border: 1px solid #f1dc9b;
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-weight: 900;
+  font-size: .86rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #24211a;
+}
+h1, h2, h3 { margin: 0; line-height: 1.05; letter-spacing: -.045em; }
+h1 {
+  margin-top: 20px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.1rem, 7vw, 6.9rem);
+  font-weight: 900;
+}
+.lead { color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.75; margin: 24px 0 30px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 34px;
+}
+.stat {
+  background: rgba(255,255,255,.72);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 18px;
+}
+.stat strong { display: block; font-family: Georgia, serif; font-size: 2rem; }
+.stat span { color: var(--muted); font-weight: 800; font-size: .86rem; }
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.section-head h2 { font-family: Georgia, serif; font-size: clamp(2.2rem, 4vw, 4rem); }
+.section-head p { max-width: 560px; color: var(--muted); line-height: 1.7; margin: 10px 0 0; }
+
+.grid { display: grid; gap: 22px; }
+.branch-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+.card {
+  background: rgba(255,255,255,.82);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 18px 48px rgba(23,52,71,.08);
+  overflow: hidden;
+}
+.branch-card { cursor: pointer; transition: transform .24s ease, box-shadow .24s ease; }
+.branch-card:hover { transform: translateY(-7px); box-shadow: var(--shadow); }
+.branch-card img { width: 100%; height: 210px; object-fit: cover; }
+.card-body { padding: 24px; }
+.card h3 { font-size: 1.35rem; margin-bottom: 10px; }
+.muted { color: var(--muted); line-height: 1.65; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #fff3c6;
+  color: #3a3325;
+  font-weight: 900;
+  font-size: .82rem;
+}
+.badge.green { background: var(--green-soft); color: #3a3325; }
+.badge.gold { background: #fff6dc; color: #8b6200; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 20px; }
+.tag { border: 1px solid var(--line); border-radius: 999px; padding: 7px 10px; color: #526c7e; font-size: .84rem; font-weight: 800; background: #fff; }
+
+.facility-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr)); }
+.facility {
+  padding: 24px;
+  min-height: 190px;
+  position: relative;
+}
+.facility-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  color: var(--blue-dark);
+  background: linear-gradient(145deg, #fff6d8, #ffe8a3);
+  margin-bottom: 18px;
+}
+.facility svg { width: 31px; height: 31px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+.fee-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--line); }
+table { width: 100%; border-collapse: collapse; background: #fff; min-width: 720px; }
+th, td { padding: 19px 22px; text-align: left; border-bottom: 1px solid var(--line); }
+th { background: #fff3c6; color: #29251c; font-size: .86rem; letter-spacing: .08em; text-transform: uppercase; }
+td { color: #363126; font-weight: 800; }
+tr:last-child td { border-bottom: 0; }
+
+.booking-panel {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 26px;
+  align-items: stretch;
+}
+.booking-aside {
+  padding: 34px;
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, #fff8dc, #fff0bb);
+  border: 1px solid var(--line);
+}
+.booking-aside h2 { font-family: Georgia, serif; font-size: clamp(2.2rem, 4vw, 3.6rem); margin: 12px 0; }
+.form-card { padding: 28px; }
+.form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.field { display: grid; gap: 8px; }
+.field.full { grid-column: 1 / -1; }
+label { font-weight: 900; color: #29251c; font-size: .92rem; }
+input, select, textarea {
+  width: 100%;
+  border: 1px solid #ead8a4;
+  border-radius: 16px;
+  padding: 14px 15px;
+  background: #fbfeff;
+  color: var(--ink);
+  outline: 0;
+  transition: border .2s ease, box-shadow .2s ease;
+}
+textarea { min-height: 112px; resize: vertical; }
+input:focus, select:focus, textarea:focus { border-color: var(--blue-dark); box-shadow: 0 0 0 4px rgba(255,216,111,.30); }
+.error { color: #b8364f; font-size: .82rem; min-height: 1em; }
+.notice { border-radius: 18px; padding: 13px 15px; margin-top: 16px; display: none; font-weight: 900; }
+.notice.ok { display: block; background: var(--green-soft); color: #3a3325; }
+.notice.fail { display: block; background: #fff1f3; color: #ad3350; }
+
+.footer {
+  margin-top: 60px;
+  background: #24211a;
+  color: white;
+  padding: 42px 0;
+}
+.footer-inner {
+  width: min(1180px, calc(100% - clamp(24px, 4vw, 56px)));
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer a, .footer p { color: rgba(255,255,255,.76); }
+.developer-credit {
+  width: 100%;
+  margin: 4px 0 0;
+  color: #fff7de !important;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-align: center;
+}
+
+.detail-hero {
+  width: min(1180px, calc(100% - clamp(24px, 4vw, 56px)));
+  margin: 0 auto;
+  padding: 52px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+.detail-gallery { display: grid; grid-template-columns: 1.2fr .8fr; gap: 14px; }
+.detail-gallery img { border-radius: 26px; height: 230px; width: 100%; object-fit: cover; box-shadow: 0 16px 40px rgba(23,52,71,.08); }
+.detail-gallery img:first-child { grid-row: span 2; height: 474px; }
+.detail-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 20px; }
+.detail-list li { list-style: none; padding: 13px 15px; border-radius: 16px; background: #fff; border: 1px solid var(--line); font-weight: 800; }
+.faculty-grid { grid-template-columns: repeat(3, 1fr); }
+.map-card { padding: 14px; }
+.map-frame {
+  width: 100%;
+  min-height: 420px;
+  border: 0;
+  border-radius: 22px;
+  background: #fff7de;
+}
+.map-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 8px 4px;
+  flex-wrap: wrap;
+}
+
+.admin-shell {
+  width: min(1220px, calc(100% - clamp(24px, 4vw, 56px)));
+  margin: 0 auto;
+  padding: 34px 0 70px;
+}
+.login-card { max-width: 460px; margin: 70px auto; padding: 32px; }
+.admin-top { display: flex; justify-content: space-between; gap: 18px; align-items: center; margin-bottom: 24px; }
+.tabs { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 26px; }
+.tab { background: #fff; border: 1px solid var(--line); color: #29251c; }
+.tab.active { background: #24211a; color: #fff7de; }
+.admin-stats { grid-template-columns: repeat(3, 1fr); margin-bottom: 24px; }
+.admin-panel { display: none; }
+.admin-panel.active { display: block; }
+.booking-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  padding: 20px;
+  margin-bottom: 14px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #fff;
+}
+.booking-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.admin-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 24px; }
+.hidden { display: none !important; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 980px) {
+  .hero, .booking-panel, .detail-hero { grid-template-columns: 1fr; }
+  .slideshow { min-height: 420px; }
+  .branch-grid, .facility-grid, .faculty-grid, .admin-stats { grid-template-columns: repeat(2, 1fr); }
+  .hero {
+    min-height: auto;
+    padding: 42px 0 58px;
+  }
+  .detail-hero { padding-top: 36px; }
+}
+
+@media (max-width: 720px) {
+  :root { --radius: 22px; }
+  .nav {
+    width: min(100% - 24px, 1180px);
+    min-height: 68px;
+    gap: 12px;
+  }
+  .brand { min-width: 0; gap: 10px; }
+  .brand-mark {
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+  }
+  .brand > span:last-child {
+    max-width: calc(100vw - 108px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .brand small { font-size: .58rem; }
+  .nav-links {
+    position: fixed;
+    inset: 76px 12px auto 12px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: var(--shadow);
+  }
+  .nav-links a {
+    padding: 14px 12px;
+    border-radius: 14px;
+    background: #fffaf0;
+  }
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: block; }
+  .section {
+    width: min(100% - 24px, 1180px);
+    padding: 48px 0;
+  }
+  .hero {
+    width: min(100% - 24px, 1240px);
+    gap: 24px;
+    padding: 28px 0 42px;
+  }
+  h1 { font-size: clamp(2.35rem, 12vw, 3.4rem); }
+  .section-head h2 { font-size: clamp(2rem, 10vw, 2.8rem); }
+  .lead {
+    font-size: 1rem;
+    line-height: 1.65;
+    margin: 18px 0 22px;
+  }
+  .slideshow {
+    min-height: 310px;
+    border-radius: 28px;
+  }
+  .slide-caption {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    text-align: center;
+    padding: 10px 12px;
+  }
+  .slide-dots {
+    top: 16px;
+    right: 16px;
+  }
+  .hero-actions, .booking-actions { gap: 10px; }
+  .hero-stats, .branch-grid, .facility-grid, .form-grid, .detail-list, .faculty-grid, .admin-stats, .admin-form { grid-template-columns: 1fr; }
+  .hero-stats { margin-top: 24px; }
+  .section-head, .admin-top, .booking-row { display: block; }
+  .card-body, .form-card, .booking-aside, .facility { padding: 20px; }
+  .branch-card img { height: 185px; }
+  .fee-wrap {
+    margin-inline: -2px;
+    -webkit-overflow-scrolling: touch;
+  }
+  table { min-width: 640px; }
+  th, td {
+    padding: 14px 13px;
+    font-size: .92rem;
+  }
+  .detail-gallery { grid-template-columns: 1fr; }
+  .detail-gallery img:first-child, .detail-gallery img { height: 260px; }
+  .booking-actions { margin-top: 14px; }
+  .map-card { padding: 10px; }
+  .map-frame {
+    min-height: 310px;
+    border-radius: 18px;
+  }
+  .map-info {
+    display: block;
+    padding: 16px 4px 2px;
+  }
+  .admin-shell {
+    width: min(100% - 24px, 1220px);
+    padding: 22px 0 48px;
+  }
+  .login-card {
+    margin: 28px auto;
+    padding: 22px;
+  }
+  .tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .tab { width: 100%; }
+  .booking-row { padding: 16px; }
+  .footer { padding: 30px 0; }
+  .footer-inner { width: min(100% - 24px, 1180px); }
+}
+
+@media (max-width: 420px) {
+  .eyebrow {
+    font-size: .74rem;
+    padding: 8px 11px;
+  }
+  .slideshow { min-height: 260px; }
+  .stat {
+    padding: 14px;
+    border-radius: 18px;
+  }
+  .stat strong { font-size: 1.65rem; }
+  .btn {
+    min-height: 46px;
+    padding: 12px 16px;
+  }
+  .detail-gallery img:first-child, .detail-gallery img { height: 220px; }
+  .map-frame { min-height: 260px; }
+}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark"><img src="./images/vidyaroopa-logo.jpeg" alt="Vidyaroopa Discovery Kids logo"></span>
+        <span>Vidyaroopa Discovery Kids<small>Pre-school</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+      <div class="nav-links">
+        <a href="#branches">Branches</a>
+        <a href="#facilities">Facilities</a>
+        <a href="#fees">Fees</a>
+        <a href="#booking">Book Tour</a>
+        <a href="./admin.html">Admin</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="slideshow" aria-label="School photo slideshow">
+        <div class="slide active"><img src="./images/real/group-activity.jpg" alt="Vidyaroopa Discovery Kids students doing activities"><span class="slide-caption">Play-based learning</span></div>
+        <div class="slide"><img src="./images/real/activity-painting.jpg" alt="Student painting activity"><span class="slide-caption">Creative classroom activities</span></div>
+        <div class="slide"><img src="./images/real/flower-craft.jpg" alt="Children presenting craft work"><span class="slide-caption">Curiosity and creativity</span></div>
+        <div class="slide"><img src="./images/real/exercise-class.jpg" alt="Children exercise class"><span class="slide-caption">Movement and confidence</span></div>
+        <div class="slide-dots" aria-hidden="true"></div>
+      </div>
+      <div class="hero-copy">
+        <span class="eyebrow">Admissions open</span>
+        <h1>Safe, joyful preschool learning for curious kids.</h1>
+        <p class="lead">Vidyaroopa Discovery Kids Pre-school provides a secure, nurturing environment where children learn through engaging play-based activities, creativity, and early childhood care.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#booking">Book a Tour</a>
+          <a class="btn btn-secondary" href="#branches">View Branches</a>
+        </div>
+        <div class="hero-stats" aria-label="School highlights">
+          <div class="stat"><strong>2008</strong><span>Established</span></div>
+          <div class="stat"><strong>2-6</strong><span>Years age group</span></div>
+          <div class="stat"><strong>9 AM</strong><span>To 1:30 PM</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="branches">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Our campuses</span>
+          <h2>Choose the branch closest to your family.</h2>
+        </div>
+        <p>Each branch has its own detailed page with more images, faculty information, full facilities, fee details, gallery, and a tour booking action.</p>
+      </div>
+      <div class="grid branch-grid" id="branchCards"></div>
+    </section>
+
+    <section class="section reveal" id="facilities">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Campus care</span>
+          <h2>Facilities designed around safety, play, and comfort.</h2>
+        </div>
+        <p>Safe classrooms, child-friendly washrooms, CCTV, learning materials, and activity zones help parents feel confident about every school day.</p>
+      </div>
+      <div class="grid facility-grid">
+        <article class="card facility"><span class="facility-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 21h10M12 17v4"/></svg></span><h3>Smart learning</h3><p class="muted">Age-appropriate learning resources and guided preschool activities.</p></article>
+        <article class="card facility"><span class="facility-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg></span><h3>Colourful classrooms</h3><p class="muted">Safe, bright classrooms for young children.</p></article>
+        <article class="card facility"><span class="facility-icon"><svg viewBox="0 0 24 24"><path d="M10 2v7L4 20a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2L14 9V2"/><path d="M8 2h8M7 16h10"/></svg></span><h3>Activity zone</h3><p class="muted">Indoor play, craft, storytelling, and discovery activities.</p></article>
+        <article class="card facility"><span class="facility-icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><h3>Learning materials</h3><p class="muted">Play and learning materials for hands-on understanding.</p></article>
+        <article class="card facility"><span class="facility-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18"/></svg></span><h3>Outdoor play area</h3><p class="muted">Playtime that supports movement, balance, and confidence.</p></article>
+        <article class="card facility"><span class="facility-icon"><svg viewBox="0 0 24 24"><path d="M5 17h14l1-7H4l1 7z"/><path d="M7 17a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM17 17a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/><path d="M7 10V6h10v4"/></svg></span><h3>Child-safe furniture</h3><p class="muted">Furniture and spaces planned for preschool children.</p></article>
+        <article class="card facility"><span class="facility-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-5"/></svg></span><h3>CCTV surveillance</h3><p class="muted">Monitored common areas and safety-focused routines.</p></article>
+        <article class="card facility"><span class="facility-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/><rect x="3" y="3" width="18" height="18" rx="4"/></svg></span><h3>Child-friendly washrooms</h3><p class="muted">Hygienic washrooms designed for young learners.</p></article>
+      </div>
+    </section>
+
+    <section class="section reveal" id="fees">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Transparent fees</span>
+          <h2>Simple fee structure for planning ahead.</h2>
+        </div>
+        <p>Transport is optional and varies by route. Final branch-wise details are confirmed by the admissions team during your visit.</p>
+      </div>
+      <div class="fee-wrap">
+        <table>
+          <thead><tr><th>Program</th><th>Admission fee</th><th>Monthly / recurring</th><th>Annual charges</th><th>Notes</th></tr></thead>
+          <tbody id="feeRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section reveal" id="booking">
+      <div class="booking-panel">
+        <aside class="booking-aside">
+          <span class="eyebrow">Tour booking</span>
+          <h2>Visit a campus, meet the team, and see the routines.</h2>
+          <p class="lead">Submit your preferred slot. The request is saved to the admin dashboard where the manager can confirm, reject, and contact parents.</p>
+          <div class="tag-list">
+            <span class="tag">Shared database</span><span class="tag">Admin review</span><span class="tag">Updates across devices</span>
+          </div>
+        </aside>
+        <form class="card form-card" id="bookingForm" novalidate>
+          <div class="form-grid">
+            <div class="field"><label for="studentName">Student Name</label><input id="studentName" name="studentName" required><span class="error" data-error="studentName"></span></div>
+            <div class="field"><label for="parentName">Parent Name</label><input id="parentName" name="parentName" required><span class="error" data-error="parentName"></span></div>
+            <div class="field"><label for="phone">Phone Number</label><input id="phone" name="phone" inputmode="tel" required><span class="error" data-error="phone"></span></div>
+            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required><span class="error" data-error="email"></span></div>
+            <div class="field"><label for="preferredDate">Preferred Date</label><input id="preferredDate" name="preferredDate" type="date" required><span class="error" data-error="preferredDate"></span></div>
+            <div class="field"><label for="preferredTime">Preferred Time</label><select id="preferredTime" name="preferredTime" required><option value="">Select time</option><option>09:30 AM</option><option>11:00 AM</option><option>02:30 PM</option><option>04:00 PM</option></select><span class="error" data-error="preferredTime"></span></div>
+            <div class="field"><label for="branch">Select Branch</label><select id="branch" name="branch" required></select><span class="error" data-error="branch"></span></div>
+            <div class="field"><label for="visitors">Number of Visitors</label><input id="visitors" name="visitors" type="number" min="1" max="10" value="2" required><span class="error" data-error="visitors"></span></div>
+            <div class="field full"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us your child’s grade, current school, or any questions."></textarea><span class="error" data-error="message"></span></div>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit Booking Request</button>
+          <div class="notice" id="bookingNotice"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong>Vidyaroopa Discovery Kids Pre-school</strong><p>Kindergarten admissions website with branch details and tour booking.</p></div>
+      <p><a href="#booking">Book a Tour</a> · <a href="./admin.html">Admin Dashboard</a></p>
+      <p class="developer-credit">B&amp;C Developers</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./js/supabase-config.js"></script>
+  <script src="./js/data.js"></script>
+  <script>
+const money = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 });
+const db = window.supabaseClient;
+const escapeHtml = window.vdData.escapeHtml;
+let branches = [];
+
+function qs(selector, root = document) { return root.querySelector(selector); }
+function qsa(selector, root = document) { return [...root.querySelectorAll(selector)]; }
+
+function initNav() {
+  const toggle = qs('.nav-toggle');
+  const links = qs('.nav-links');
+  if (!toggle || !links) return;
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+  links.addEventListener('click', (event) => {
+    if (event.target.tagName === 'A') {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
+function initSlideshow() {
+  const slides = qsa('.slide');
+  const dots = qs('.slide-dots');
+  if (!slides.length || !dots) return;
+  slides.forEach((_, index) => {
+    const dot = document.createElement('span');
+    dot.className = `slide-dot ${index === 0 ? 'active' : ''}`;
+    dots.appendChild(dot);
+  });
+  const dotItems = qsa('.slide-dot');
+  let active = 0;
+  setInterval(() => {
+    slides[active].classList.remove('active');
+    dotItems[active].classList.remove('active');
+    active = (active + 1) % slides.length;
+    slides[active].classList.add('active');
+    dotItems[active].classList.add('active');
+  }, 4200);
+}
+
+function initReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: .12 });
+  qsa('.reveal').forEach((item) => observer.observe(item));
+}
+
+function statusClass(status) {
+  if (status === 'Open') return 'green';
+  if (status === 'Limited Seats') return 'gold';
+  return '';
+}
+
+function renderBranches() {
+  const wrap = qs('#branchCards');
+  const select = qs('#branch');
+  if (select) {
+    select.innerHTML = '<option value="">Select branch</option>' + branches.map((branch) => `<option value="${escapeHtml(branch.id)}">${escapeHtml(branch.name)}</option>`).join('');
+  }
+  if (!wrap) return;
+  wrap.innerHTML = branches.map((branch) => `
+    <article class="card branch-card" tabindex="0" data-id="${escapeHtml(branch.id)}" aria-label="Open ${escapeHtml(branch.name)} detail page">
+      <img src="${escapeHtml(window.vdData.assetUrl(branch.image || '/images/campus.svg'))}" alt="${escapeHtml(branch.name)}">
+      <div class="card-body">
+        <span class="badge ${statusClass(branch.admissionStatus)}">${escapeHtml(branch.admissionStatus)}</span>
+        <h3>${escapeHtml(branch.name)}</h3>
+        <p class="muted">${escapeHtml(branch.address)}</p>
+        <div class="tag-list">${(branch.facilities || []).slice(0, 3).map((facility) => `<span class="tag">${escapeHtml(facility.replace(/ with .*/, ''))}</span>`).join('')}</div>
+        <div class="booking-actions">
+          <a class="btn btn-secondary btn-small" href="./branch.html?id=${encodeURIComponent(branch.id)}">Contact & View Details</a>
+          ${branch.mapUrl ? `<a class="btn btn-soft btn-small" href="${escapeHtml(branch.mapUrl)}" target="_blank" rel="noopener">Open Map</a>` : ''}
+        </div>
+      </div>
+    </article>
+  `).join('');
+  qsa('.branch-card', wrap).forEach((card) => {
+    card.addEventListener('click', (event) => {
+      if (event.target.closest('a')) return;
+      window.location.href = `./branch.html?id=${encodeURIComponent(card.dataset.id)}`;
+    });
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') window.location.href = `./branch.html?id=${encodeURIComponent(card.dataset.id)}`;
+    });
+  });
+}
+
+function renderFees(fees) {
+  const rows = qs('#feeRows');
+  if (!rows) return;
+  rows.innerHTML = fees.map((fee) => `
+    <tr>
+      <td>${escapeHtml(fee.level)}</td>
+      <td>${formatFee(fee.admissionFee)}</td>
+      <td>${formatFee(fee.monthlyTuition)}</td>
+      <td>${formatFee(fee.annualCharges)}</td>
+      <td>${escapeHtml(fee.note || (fee.transportFee ? money.format(fee.transportFee) : 'Contact office'))}</td>
+    </tr>
+  `).join('');
+}
+
+function formatFee(value) {
+  return Number(value) ? money.format(value) : 'Contact office';
+}
+
+function formData(form) {
+  return Object.fromEntries(new FormData(form).entries());
+}
+
+function clearErrors(form) {
+  qsa('.error', form).forEach((item) => { item.textContent = ''; });
+}
+
+function showErrors(form, errors = {}) {
+  Object.entries(errors).forEach(([key, message]) => {
+    const target = qs(`[data-error="${key}"]`, form);
+    if (target) target.textContent = message;
+  });
+}
+
+function validateBooking(data) {
+  const errors = {};
+  if (!data.studentName.trim()) errors.studentName = 'Student name is required.';
+  if (!data.parentName.trim()) errors.parentName = 'Parent name is required.';
+  if (!/^[0-9+\-\s()]{7,18}$/.test(data.phone.trim())) errors.phone = 'Enter a valid phone number.';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())) errors.email = 'Enter a valid email.';
+  if (!data.preferredDate) errors.preferredDate = 'Choose a preferred date.';
+  if (!data.preferredTime) errors.preferredTime = 'Choose a preferred time.';
+  if (!data.branch) errors.branch = 'Select a branch.';
+  const visitors = Number(data.visitors);
+  if (!Number.isInteger(visitors) || visitors < 1 || visitors > 10) errors.visitors = 'Use 1 to 10 visitors.';
+  return errors;
+}
+
+function initBooking() {
+  const form = qs('#bookingForm');
+  if (!form) return;
+  qs('#preferredDate').min = new Date().toISOString().slice(0, 10);
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    clearErrors(form);
+    const notice = qs('#bookingNotice');
+    notice.className = 'notice';
+    const data = formData(form);
+    const errors = validateBooking(data);
+    if (Object.keys(errors).length) {
+      showErrors(form, errors);
+      return;
+    }
+    const button = qs('button[type="submit"]', form);
+    button.disabled = true;
+    button.textContent = 'Submitting...';
+    try {
+      if (!db) throw new Error('The booking service is not configured yet.');
+      const branch = branches.find((item) => item.id === data.branch);
+      const { error } = await db.from('bookings').insert({
+        student_name: data.studentName.trim(),
+        parent_name: data.parentName.trim(),
+        phone: data.phone.trim(),
+        email: data.email.trim().toLowerCase(),
+        preferred_date: data.preferredDate,
+        preferred_time: data.preferredTime,
+        branch_id: data.branch,
+        branch_name: branch?.name || '',
+        visitors: Number(data.visitors),
+        message: data.message.trim()
+      });
+      if (error) throw new Error(error.message || 'Booking failed.');
+      form.reset();
+      qs('#preferredDate').min = new Date().toISOString().slice(0, 10);
+      notice.textContent = 'Your tour request was saved for the admissions team.';
+      notice.className = 'notice ok';
+    } catch (error) {
+      notice.textContent = error.message || 'Could not submit booking. Please try again.';
+      notice.className = 'notice fail';
+    } finally {
+      button.disabled = false;
+      button.textContent = 'Submit Booking Request';
+    }
+  });
+}
+
+async function loadData() {
+  if (!db) throw new Error('Add your Supabase project URL and public key in js/supabase-config.js.');
+  const [branchResult, feeResult] = await Promise.all([
+    db.from('branches').select('*').order('created_at'),
+    db.from('fees').select('*').order('monthly_tuition')
+  ]);
+  if (branchResult.error) throw branchResult.error;
+  if (feeResult.error) throw feeResult.error;
+  branches = branchResult.data.map(window.vdData.branchFromRow);
+  renderBranches();
+  renderFees(feeResult.data.map(window.vdData.feeFromRow));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initNav();
+  initSlideshow();
+  initReveal();
+  initBooking();
+  loadData().catch((error) => {
+    console.error(error);
+    const notice = qs('#bookingNotice');
+    notice.textContent = error.message || 'Could not load school information.';
+    notice.className = 'notice fail';
+  });
+});
+  </script>
+</body>
+</html>

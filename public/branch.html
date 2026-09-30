@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Vidyarupa Discovery branch details with facilities, fee structure, faculty, gallery, and campus tour booking.">
+  <title>Branch Details | Vidyarupa Discovery</title>
+  <link rel="icon" href="./images/vidyaroopa-logo.jpeg">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="./index.html"><span class="brand-mark"><img src="./images/vidyaroopa-logo.jpeg" alt="Vidyaroopa Discovery Kids logo"></span><span>Vidyaroopa Discovery Kids<small>Branch details</small></span></a>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+      <div class="nav-links"><a href="./index.html">Home</a><a href="./index.html#branches">Branches</a><a href="./index.html#booking">Book Tour</a><a href="./admin.html">Admin</a></div>
+    </nav>
+  </header>
+
+  <main id="branchPage">
+    <section class="detail-hero">
+      <div>
+        <span class="eyebrow" id="status">Loading</span>
+        <h1 id="branchName">Branch details</h1>
+        <p class="lead" id="branchDescription"></p>
+        <p class="muted" id="branchAddress"></p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="./index.html#booking">Book Tour</a>
+          <a class="btn btn-secondary" id="contactButton" href="#">Contact Branch</a>
+        </div>
+      </div>
+      <div class="detail-gallery" id="heroImages"></div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-head">
+        <div><span class="eyebrow">Full facilities</span><h2>Everything available at this campus.</h2></div>
+      </div>
+      <ul class="detail-list" id="facilityList"></ul>
+    </section>
+
+    <section class="section reveal" id="mapSection">
+      <div class="section-head">
+        <div><span class="eyebrow">Location map</span><h2>Find this branch on Google Maps.</h2></div>
+        <p>Use the map preview or open the exact branch location in Google Maps.</p>
+      </div>
+      <div class="card map-card" id="mapCard"></div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-head">
+        <div><span class="eyebrow">Faculty</span><h2>Meet the campus leadership and mentors.</h2></div>
+      </div>
+      <div class="grid faculty-grid" id="facultyCards"></div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-head">
+        <div><span class="eyebrow">Fee structure</span><h2>Branch fee table.</h2></div>
+      </div>
+      <div class="fee-wrap">
+        <table>
+          <thead><tr><th>Program</th><th>Admission fee</th><th>Monthly / recurring</th><th>Annual charges</th><th>Notes</th></tr></thead>
+          <tbody id="feeRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-head">
+        <div><span class="eyebrow">Gallery</span><h2>A closer look at learning spaces.</h2></div>
+      </div>
+      <div class="detail-gallery" id="galleryImages"></div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="footer-inner"><strong>Vidyaroopa Discovery Kids</strong><p><a href="./index.html#booking">Book a Tour</a> · <a href="./index.html">Back to website</a></p><p class="developer-credit">B&amp;C Developers</p></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./js/supabase-config.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/branch.js"></script>
+</body>
+</html>

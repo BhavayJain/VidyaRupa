@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Admin Dashboard | Vidyarupa Discovery</title>
+  <link rel="icon" href="./images/vidyaroopa-logo.jpeg">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="./index.html"><span class="brand-mark"><img src="./images/vidyaroopa-logo.jpeg" alt="Vidyaroopa Discovery Kids logo"></span><span>Vidyaroopa Discovery Kids<small>Admin dashboard</small></span></a>
+      <div class="nav-links"><a href="./index.html">Public Site</a></div>
+    </nav>
+  </header>
+
+  <main class="admin-shell">
+    <section class="card login-card" id="loginView">
+      <span class="eyebrow">Secure login</span>
+      <h1>Admin access</h1>
+      <p class="muted">Use the administrator credentials configured for the school website.</p>
+      <form id="loginForm" class="form-grid" novalidate>
+        <div class="field full"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="username" required></div>
+        <div class="field full"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" required></div>
+        <button class="btn btn-primary field full" type="submit">Log in</button>
+        <div class="notice field full" id="loginNotice"></div>
+      </form>
+    </section>
+
+    <section id="dashboardView" class="hidden">
+      <div class="admin-top">
+        <div><span class="eyebrow">Dashboard</span><h1>Admissions manager</h1></div>
+        <button class="btn btn-secondary" id="logoutButton">Log out</button>
+      </div>
+      <div class="grid admin-stats">
+        <div class="stat"><strong id="branchCount">0</strong><span>Branches</span></div>
+        <div class="stat"><strong id="bookingCount">0</strong><span>Total bookings</span></div>
+        <div class="stat"><strong id="pendingCount">0</strong><span>Pending review</span></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="btn tab active" data-tab="bookings">Tour Bookings</button>
+        <button class="btn tab" data-tab="branches">Manage Branches</button>
+        <button class="btn tab" data-tab="fees">Fee Structure</button>
+      </div>
+
+      <section class="admin-panel active" id="panel-bookings">
+        <div class="section-head"><div><h2>Tour booking requests</h2><p>Accept, reject, or contact parents directly.</p></div></div>
+        <div id="bookingList"></div>
+      </section>
+
+      <section class="admin-panel" id="panel-branches">
+        <div class="section-head"><div><h2>Branch content</h2><p>Add or edit branch details.</p></div></div>
+        <form class="card form-card admin-form" id="branchForm">
+          <input type="hidden" name="id" id="branchId">
+          <div class="field"><label>Branch name</label><input name="name" required></div>
+          <div class="field"><label>Phone</label><input name="phone"></div>
+          <div class="field"><label>Email</label><input name="email" type="email"></div>
+          <div class="field full"><label>Address</label><input name="address" required></div>
+          <div class="field"><label>Google Maps link</label><input name="mapUrl" placeholder="https://maps.app.goo.gl/..."></div>
+          <div class="field"><label>Map embed URL</label><input name="mapEmbedUrl" placeholder="https://www.google.com/maps?q=...&output=embed"></div>
+          <div class="field"><label>Admission status</label><select name="admissionStatus"><option>Open</option><option>Limited Seats</option><option>Waitlist</option><option>Closed</option></select></div>
+          <div class="field full"><label>Description</label><textarea name="description"></textarea></div>
+          <div class="field full"><label>Facilities, one per line</label><textarea name="facilities"></textarea></div>
+          <button class="btn btn-primary" type="submit">Save branch</button>
+          <button class="btn btn-secondary" type="button" id="clearBranchForm">Clear</button>
+          <div class="notice field full" id="branchNotice"></div>
+        </form>
+        <div class="grid branch-grid" id="adminBranchCards"></div>
+      </section>
+
+      <section class="admin-panel" id="panel-fees">
+        <div class="section-head"><div><h2>Fee rows</h2><p>Add or update admission fee, tuition, annual charges, and optional transport.</p></div></div>
+        <form class="card form-card admin-form" id="feeForm">
+          <input type="hidden" name="id" id="feeId">
+          <div class="field"><label>Program</label><input name="level" required></div>
+          <div class="field"><label>Admission fee</label><input name="admissionFee" type="number" min="0" required></div>
+          <div class="field"><label>Monthly tuition</label><input name="monthlyTuition" type="number" min="0" required></div>
+          <div class="field"><label>Annual charges</label><input name="annualCharges" type="number" min="0" required></div>
+          <div class="field"><label>Transport fee</label><input name="transportFee" type="number" min="0"></div>
+          <div class="field full"><label>Note</label><input name="note" placeholder="e.g. Per-day daycare option"></div>
+          <button class="btn btn-primary" type="submit">Save fee row</button>
+          <button class="btn btn-secondary" type="button" id="clearFeeForm">Clear</button>
+          <div class="notice field full" id="feeNotice"></div>
+        </form>
+        <div class="fee-wrap">
+          <table><thead><tr><th>Program</th><th>Admission</th><th>Monthly</th><th>Annual</th><th>Notes</th><th>Action</th></tr></thead><tbody id="adminFeeRows"></tbody></table>
+        </div>
+      </section>
+    </section>
+  </main>
+  <footer class="footer"><div class="footer-inner"><strong>Vidyaroopa Discovery Kids</strong><p>Admin dashboard</p><p class="developer-credit">B&amp;C Developers</p></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./js/supabase-config.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/admin.js"></script>
+</body>
+</html>

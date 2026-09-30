@@ -55,7 +55,7 @@ function formatFee(value) {
 }
 
 function renderBranch(branch) {
-  document.title = `${branch.name} | Vidyaroopa Discovery Kids`;
+  document.title = `${branch.name} | Vidyarupa Discovery Kids`;
   qs('#status').textContent = branch.admissionStatus;
   qs('#branchName').textContent = branch.name;
   qs('#branchDescription').textContent = branch.description || 'A Vidyarupa Discovery learning campus.';

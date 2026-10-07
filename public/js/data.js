@@ -16,8 +16,10 @@
   }
 
   function branchFromRow(row) {
+    const name = String(row.name ?? '').replace(/vidyaroopa/gi, 'Vidyarupa');
     return {
       ...row,
+      name,
       mapUrl: row.map_url,
       mapEmbedUrl: row.map_embed_url,
       heroImages: row.hero_images || [],
